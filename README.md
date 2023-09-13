@@ -8,5 +8,5 @@
     - password is the password the domain has for uploading results (sets password if new domain)
 
 Example executions:
-python scraper.py https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19800/ https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19801/
+python scraper.py https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19800/ https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19801/ <br>
 python uploader.py results elsinore.mxsimulator.com:19800 !password12345
