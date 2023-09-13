@@ -7,6 +7,6 @@
     - domainName is the domain you want to post the results to.<br>
     - password is the password the domain has for uploading results (sets password if new domain)
 
-Example executions:
+Example executions:<br>
 python scraper.py https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19800/ https://servers.mxsimulator.com/servers/elsinore.mxsimulator.com:19801/ <br>
 python uploader.py results elsinore.mxsimulator.com:19800 !password12345
