@@ -2,14 +2,18 @@ import requests, re, sys, os
 
 LINE_UP = '\033[1A'
 LINE_CLEAR = '\x1b[2K'
+SERVER_PAGE = "https://servers.mxsimulator.com/servers/"
 
-def isValidSimServer(url):
+def isValidSimServer(domain):
+    url = SERVER_PAGE + domain + '/'
     response = requests.get(url)
     return (response.status_code > 199 and response.status_code < 300)
 
-def scrapeResults(serverURL):
+def scrapeResults(domain):
 
-    print("\nScraping Results From: " + serverURL)
+    print("\nScraping Results From: " + domain)
+
+    serverURL = SERVER_PAGE + domain + '/'
 
     # get the folder name
     serverURLArr = serverURL.split("/")
@@ -64,22 +68,22 @@ def scrapeResults(serverURL):
 
         print(LINE_UP, end=LINE_CLEAR)
     
-    print("Done Scraping From: " + serverURL)
+    print("Done Scraping From: " + domain)
 
 def main():
 
-    urls = sys.argv[1:]
-    validUrls = list(map(isValidSimServer, urls))
+    domains = sys.argv[1:]
+    validDomains = list(map(isValidSimServer, domains))
 
-    if (len(urls) == 0 or not True in validUrls):
-        print("Enter a valid server link...")
+    if (len(domains) == 0 or not True in validDomains):
+        print("Enter a valid server domain...")
         sys.exit(1)
 
-    for i in range(len(urls)):
-        if (validUrls[i] == False):
+    for i in range(len(domains)):
+        if (validDomains[i] == False):
             continue
 
-        scrapeResults(urls[i])
+        scrapeResults(domains[i])
 
     print("Scraped All Data!")
     
